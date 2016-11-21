@@ -103,6 +103,8 @@ void Salamander::CreateLegs(shared_ptr<PhysicsController> bodySection, float w, 
 			);
 		hinge->setLimit(glm::quarter_pi<float>(), glm::quarter_pi<float>());
 		physicsFactory->dynamicsWorld->addConstraint(hinge);
+
+		legs.push_back(upperLeg);
 	}
 }
 

@@ -38,6 +38,7 @@ bool PhysicsGame1::Initialise()
 
 	salamander = make_shared<Salamander>(physicsFactory);
 	salamander->Initialise();
+	Attach(salamander);
 
 	float w = 1;
 	float h = 1;
@@ -58,6 +59,7 @@ bool PhysicsGame1::Initialise()
 
 void BGE::PhysicsGame1::Update(float timeDelta)
 {
+	// salamander->Update(timeDelta);
 	Game::Update(timeDelta);
 }
 

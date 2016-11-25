@@ -20,8 +20,13 @@ namespace BGE
 		Salamander(shared_ptr<PhysicsFactory> _physicsFactory);
 		Salamander();
 		~Salamander(void);
+
 		bool Initialise();
 		void Update(float timeDelta);
+
 		shared_ptr<PhysicsController> CreateSalamander(glm::vec3 position, int numSections, float sectionWidth, float sectionHeight, float sectionDepth);
+
+		glm::vec3 force;
+		glm::vec3 velocity;
 	};
 }

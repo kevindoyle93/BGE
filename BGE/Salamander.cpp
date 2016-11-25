@@ -1,10 +1,12 @@
 #include "Salamander.h"
+#include "Content.h"
 using namespace BGE;
 
 
 Salamander::Salamander(shared_ptr<PhysicsFactory> _physicsFactory)
 {
 	physicsFactory = _physicsFactory;
+	force = glm::vec3(0);
 }
 
 Salamander::Salamander()
@@ -110,5 +112,74 @@ void Salamander::CreateLegs(shared_ptr<PhysicsController> bodySection, float w, 
 
 void Salamander::Update(float timeDelta)
 {
+	const Uint8 * keyState = Game::Instance()->GetKeyState();
+
+	float scale = 10000.0f;
+
+	if (keyState[SDL_SCANCODE_UP])
+	{
+		force += bodySections[bodySections.size() - 1]->transform->right * scale * timeDelta;
+	}
+	if (keyState[SDL_SCANCODE_DOWN])
+	{
+		force += bodySections[bodySections.size() - 1]->transform->right * scale * timeDelta;
+	}
+
+	velocity += force * timeDelta;
+	bodySections[bodySections.size() - 1]->transform->position += velocity * timeDelta;
+
+	if (glm::length(velocity) > 0.0001f)
+	{
+		bodySections[bodySections.size() - 1]->transform->look = glm::normalize(velocity);
+		bodySections[bodySections.size() - 1]->transform->right = glm::cross(transform->look, transform->up);
+		velocity *= 0.99f;
+	}
+
+	// Reset the force
+	force = glm::vec3(0);
+
 	GameComponent::Update(timeDelta);
 }
+
+/*
+
+void Steerable2DController::Update(float timeDelta)
+{
+const Uint8 * keyState = Game::Instance()->GetKeyState();
+
+float scale = 10000.0f;
+
+if (keyState[keyForward])
+{
+force += transform->look * scale * timeDelta;
+}
+if (keyState[keyBackwards])
+{
+force += -transform->look * scale * timeDelta;
+}
+if (keyState[keyRight])
+{
+force += transform->right * scale * timeDelta;
+}
+if (keyState[keyLeft])
+{
+force += -transform->right * scale * timeDelta;
+}
+
+velocity += force * timeDelta;
+transform->position += velocity * timeDelta;
+
+if (glm::length(velocity) > 0.0001f)
+{
+transform->look = glm::normalize(velocity);
+transform->right = glm::cross(transform->look, transform->up);
+velocity *= 0.99f;
+}
+
+// Reset the force
+force = glm::vec3(0);
+
+GameComponent::Update(timeDelta);
+}
+
+*/

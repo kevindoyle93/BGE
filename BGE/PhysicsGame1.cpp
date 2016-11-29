@@ -34,7 +34,7 @@ bool PhysicsGame1::Initialise()
 	physicsFactory->CreateGroundPhysics();
 	physicsFactory->CreateCameraPhysics();	
 
-	dynamicsWorld->setGravity(btVector3(0, -9.8, 0));
+	// dynamicsWorld->setGravity(btVector3(0, -9.8, 0));
 
 	salamander = make_shared<Salamander>(physicsFactory);
 	salamander->Initialise();
@@ -43,7 +43,7 @@ bool PhysicsGame1::Initialise()
 	float w = 1;
 	float h = 1;
 	float d = 4;
-	glm::vec3 position = glm::vec3(5, 5, -15);
+	glm::vec3 position = glm::vec3(5, 10, -15);
 	int numSections = 5;
 
 	salamander->CreateSalamander(position, numSections, w, h, d);

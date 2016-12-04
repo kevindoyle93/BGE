@@ -31,12 +31,10 @@ std::shared_ptr<GameComponent> station;
 
 bool PhysicsGame1::Initialise() 
 {	
-	shared_ptr<PhysicsController> ground = physicsFactory->CreateGroundPhysics();
-	ground->rigidBody->setFriction(1);
-	// physicsFactory->CreateGroundPhysics();
+	physicsFactory->CreateGroundPhysics();
 	physicsFactory->CreateCameraPhysics();	
 
-	// dynamicsWorld->setGravity(btVector3(0, -1, 0));
+	dynamicsWorld->setGravity(btVector3(0, -1, 0));
 
 	salamander = make_shared<Salamander>(physicsFactory);
 	salamander->Initialise();

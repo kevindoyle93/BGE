@@ -167,23 +167,15 @@ void Salamander::Update(float timeDelta)
 	{
 		legs[0]->rigidBody->activate();
 		legs[0]->rigidBody->applyForce(btVector3(0, 0, speed), btVector3(-2.0f, 0, 0));
-		/*lowerLegs[0]->rigidBody->activate();
-		lowerLegs[0]->rigidBody->applyForce(btVector3(speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		legs[1]->rigidBody->activate();
 		legs[1]->rigidBody->applyForce(btVector3(0, 0, -speed), btVector3(2.0f, 0, 0));
-		/*lowerLegs[1]->rigidBody->activate();
-		lowerLegs[1]->rigidBody->applyForce(btVector3(speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		legs[2]->rigidBody->activate();
 		legs[2]->rigidBody->applyForce(btVector3(0, 0, -speed), btVector3(-2.0f, 0, 0));
-		/*lowerLegs[2]->rigidBody->activate();
-		lowerLegs[2]->rigidBody->applyForce(btVector3(-speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		legs[3]->rigidBody->activate();
 		legs[3]->rigidBody->applyForce(btVector3(0, 0, speed), btVector3(2.0f, 0, 0));
-		/*lowerLegs[3]->rigidBody->activate();
-		lowerLegs[3]->rigidBody->applyForce(btVector3(-speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		upperToLowerLegJoints[0]->setLimit(glm::quarter_pi<float>(), glm::quarter_pi<float>());
 		upperToLowerLegJoints[1]->setLimit(-glm::half_pi<float>(), -glm::half_pi<float>());
@@ -195,23 +187,15 @@ void Salamander::Update(float timeDelta)
 	{
 		legs[0]->rigidBody->activate();
 		legs[0]->rigidBody->applyForce(btVector3(0, 0, -speed), btVector3(-2.0f, 0, 0));
-		/*lowerLegs[0]->rigidBody->activate();
-		lowerLegs[0]->rigidBody->applyForce(btVector3(-speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		legs[1]->rigidBody->activate();
 		legs[1]->rigidBody->applyForce(btVector3(0, 0, speed), btVector3(2.0f, 0, 0));
-		/*lowerLegs[1]->rigidBody->activate();
-		lowerLegs[1]->rigidBody->applyForce(btVector3(-speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		legs[2]->rigidBody->activate();
 		legs[2]->rigidBody->applyForce(btVector3(0, 0, speed), btVector3(-2.0f, 0, 0));
-		/*lowerLegs[2]->rigidBody->activate();
-		lowerLegs[2]->rigidBody->applyForce(btVector3(speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		legs[3]->rigidBody->activate();
 		legs[3]->rigidBody->applyForce(btVector3(0, 0, -speed), btVector3(2.0f, 0, 0));
-		/*lowerLegs[3]->rigidBody->activate();
-		lowerLegs[3]->rigidBody->applyForce(btVector3(speed, 0, 0), btVector3(0, -2.0f, 0));*/
 
 		upperToLowerLegJoints[0]->setLimit(glm::half_pi<float>(), glm::half_pi<float>());
 		upperToLowerLegJoints[1]->setLimit(-glm::quarter_pi<float>(), -glm::quarter_pi<float>());

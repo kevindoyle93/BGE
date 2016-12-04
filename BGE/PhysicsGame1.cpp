@@ -43,7 +43,7 @@ bool PhysicsGame1::Initialise()
 	float w = 1;
 	float h = 1;
 	float d = 4;
-	glm::vec3 position = glm::vec3(0, 10, -15);
+	glm::vec3 position = glm::vec3(0, 4, -15);
 	int numSections = 4;
 
 	salamander->CreateSalamander(position, numSections, w, h, d);

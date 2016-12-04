@@ -134,7 +134,8 @@ void Salamander::Update(float timeDelta)
 {
 	const Uint8 * keyState = Game::Instance()->GetKeyState();
 
-	speed = 4;
+	speed = 50;
+	float scale = 20;
 
 	if (keyState[SDL_SCANCODE_K])
 	{
@@ -148,14 +149,14 @@ void Salamander::Update(float timeDelta)
 
 	if (walking) 
 	{
-		if (glm::sin(elapsed * 0.4) > 0)
+		if (glm::sin(elapsed) > 0)
 		{
 			cout << "greater" << endl;
 			stepLeft = false;
 			stepRight = true;
 		}
 
-		if (glm::sin(elapsed * 0.4) < 0)
+		if (glm::sin(elapsed) < 0)
 		{
 			cout << "less" << endl;
 			stepLeft = true;
@@ -203,7 +204,7 @@ void Salamander::Update(float timeDelta)
 		upperToLowerLegJoints[3]->setLimit(-glm::half_pi<float>(), -glm::half_pi<float>());
 	}
 
-	elapsed += timeDelta;
+	elapsed += timeDelta * speed / scale;
 
 	GameComponent::Update(timeDelta);
 }

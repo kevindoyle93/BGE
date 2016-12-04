@@ -134,7 +134,7 @@ void Salamander::Update(float timeDelta)
 {
 	const Uint8 * keyState = Game::Instance()->GetKeyState();
 
-	speed = 50;
+	speed = 30;
 	float scale = 20;
 
 	if (keyState[SDL_SCANCODE_K])

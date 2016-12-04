@@ -32,11 +32,11 @@ std::shared_ptr<GameComponent> station;
 bool PhysicsGame1::Initialise() 
 {	
 	shared_ptr<PhysicsController> ground = physicsFactory->CreateGroundPhysics();
-	ground->rigidBody->setFriction(0);
+	ground->rigidBody->setFriction(1);
 	// physicsFactory->CreateGroundPhysics();
 	physicsFactory->CreateCameraPhysics();	
 
-	dynamicsWorld->setGravity(btVector3(0, -9.8, 0));
+	// dynamicsWorld->setGravity(btVector3(0, -1, 0));
 
 	salamander = make_shared<Salamander>(physicsFactory);
 	salamander->Initialise();
@@ -45,7 +45,7 @@ bool PhysicsGame1::Initialise()
 	float w = 1;
 	float h = 1;
 	float d = 4;
-	glm::vec3 position = glm::vec3(5, 5, -15);
+	glm::vec3 position = glm::vec3(0, 10, -15);
 	int numSections = 4;
 
 	salamander->CreateSalamander(position, numSections, w, h, d);
@@ -54,7 +54,7 @@ bool PhysicsGame1::Initialise()
 		return false;
 	}
 
-	camera->transform->position = glm::vec3(5, 35, 0);
+	camera->transform->position = glm::vec3(0, 35, 0);
 	camera->transform->orientation = glm::angleAxis(-85.0f, glm::vec3(1, 0, 0));
 	
 	return true;

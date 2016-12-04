@@ -16,6 +16,8 @@ namespace BGE
 		shared_ptr<PhysicsController> head, tail;
 		vector<shared_ptr<PhysicsController>> bodySections, legs, lowerLegs;
 
+		vector<btHingeConstraint *> upperToLowerLegJoints;
+
 		float elapsed;
 		bool walking, stepLeft, stepRight;
 	public:

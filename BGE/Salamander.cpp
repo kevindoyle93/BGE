@@ -42,6 +42,10 @@ shared_ptr<PhysicsController> Salamander::CreateSalamander(glm::vec3 position, i
 		bodySections.push_back(sectionToConnect);
 	}
 
+	// Create tail
+	position += gap;
+	tail = CreateBodySection(position, sectionToConnect, sectionWidth, sectionHeight, sectionDepth);
+
 	CreateLegs(
 		bodySections[0],
 		sectionDepth / 2,
@@ -64,11 +68,9 @@ shared_ptr<PhysicsController> Salamander::CreateSalamander(glm::vec3 position, i
 shared_ptr<PhysicsController> Salamander::CreateBodySection(glm::vec3 position, shared_ptr<PhysicsController> sectionToConnect, float w, float h, float d)
 {
 	shared_ptr<PhysicsController> section = physicsFactory->CreateBox(w, h, d, position, glm::quat());
-	bodySections.push_back(section);
 
 	btHingeConstraint * hinge = new btHingeConstraint(*sectionToConnect->rigidBody, *section->rigidBody, btVector3(0, 0, 2.5f), btVector3(0, 0, -2.5f), btVector3(0, 1, 0), btVector3(0, 1, 0), true);
 	hinge->setLimit(btScalar(-0.20f), btScalar(0.20f));
-	// hinge->setLimit(btScalar(0), btScalar(0));
 
 	physicsFactory->dynamicsWorld->addConstraint(hinge);
 
@@ -151,14 +153,14 @@ void Salamander::Update(float timeDelta)
 	{
 		if (glm::sin(elapsed) > 0)
 		{
-			cout << "greater" << endl;
+			// cout << "greater" << endl;
 			stepLeft = false;
 			stepRight = true;
 		}
 
 		if (glm::sin(elapsed) < 0)
 		{
-			cout << "less" << endl;
+			// cout << "less" << endl;
 			stepLeft = true;
 			stepRight = false;
 		}
@@ -203,6 +205,13 @@ void Salamander::Update(float timeDelta)
 		upperToLowerLegJoints[2]->setLimit(glm::quarter_pi<float>(), glm::quarter_pi<float>());
 		upperToLowerLegJoints[3]->setLimit(-glm::half_pi<float>(), -glm::half_pi<float>());
 	}
+
+	btTransform tailTransform;
+	tail->rigidBody->getMotionState()->getWorldTransform(tailTransform);
+	float propulsion = tailTransform.getRotation().getAngle() * speed;
+	tail->rigidBody->applyForce(btVector3(0, 0, -propulsion), btVector3(0, 0, 2.0f));
+
+	Game::Instance()->PrintFloat("Tail: ", propulsion);
 
 	elapsed += timeDelta * speed / scale;
 

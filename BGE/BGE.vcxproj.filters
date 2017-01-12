@@ -215,6 +215,9 @@
     <ClCompile Include="Salamander.cpp">
       <Filter>Prefabs</Filter>
     </ClCompile>
+    <ClCompile Include="RelativePositions.cpp">
+      <Filter>Games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -384,6 +387,9 @@
     </ClInclude>
     <ClInclude Include="Salamander.h">
       <Filter>Prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="RelativePositions.h">
+      <Filter>Games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

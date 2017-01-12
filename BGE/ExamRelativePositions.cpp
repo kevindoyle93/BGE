@@ -1,17 +1,17 @@
-#include "RelativePositions.h"
+#include "ExamRelativePositions.h"
 #include "Content.h"
 #include "VectorDrawer.h"
 #include "LazerBeam.h"
 
 using namespace BGE;
 
-RelativePositions::RelativePositions(void)
+ExamRelativePositions::ExamRelativePositions(void)
 {
 	elapsed = 10000;
 }
 
 
-bool RelativePositions::Initialise()
+bool ExamRelativePositions::Initialise()
 {
 	std::shared_ptr<GameComponent> ground = make_shared<Ground>();
 	Attach(ground);
@@ -33,7 +33,7 @@ bool RelativePositions::Initialise()
 	return true;
 }
 
-void RelativePositions::Update(float timeDelta)
+void ExamRelativePositions::Update(float timeDelta)
 {
 	bool inRange = false, inFov = false;
 

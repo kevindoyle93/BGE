@@ -174,7 +174,7 @@
     <ClInclude Include="ParticleEffect.h" />
     <ClInclude Include="PathFollowingScenario.h" />
     <ClInclude Include="Person2.h" />
-    <ClInclude Include="RelativePositions.h" />
+    <ClInclude Include="ExamRelativePositions.h" />
     <ClInclude Include="Route.h" />
     <ClInclude Include="Salamander.h" />
     <ClInclude Include="Scenario.h" />

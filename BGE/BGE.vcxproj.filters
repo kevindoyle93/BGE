@@ -388,7 +388,7 @@
     <ClInclude Include="Salamander.h">
       <Filter>Prefabs</Filter>
     </ClInclude>
-    <ClInclude Include="RelativePositions.h">
+    <ClInclude Include="ExamRelativePositions.h">
       <Filter>Games</Filter>
     </ClInclude>
   </ItemGroup>

@@ -42,6 +42,7 @@
 #include "VRGame2.h"
 #include "SDL_syswm.h"
 #include "ExamRelativePositions.h"
+#include "ExamSlerping.h"
 
 using namespace BGE;
 
@@ -51,7 +52,10 @@ int main(int argc, char *argv[])
 	Params::Load("default");
 
 	// Run game with components in front/behind each other, distance between components, and angle/FOV
-	shared_ptr<Game> game = make_shared<ExamRelativePositions>();
+	// shared_ptr<Game> game = make_shared<ExamRelativePositions>();
+
+	// Run game with quaternion slerping
+	shared_ptr<Game> game = make_shared<ExamSlerping>();
 	game->Run();
 	
 	return 0;

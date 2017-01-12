@@ -215,7 +215,10 @@
     <ClCompile Include="Salamander.cpp">
       <Filter>Prefabs</Filter>
     </ClCompile>
-    <ClCompile Include="RelativePositions.cpp">
+    <ClCompile Include="ExamRelativePositions.cpp">
+      <Filter>Games</Filter>
+    </ClCompile>
+    <ClCompile Include="ExamSlerping.cpp">
       <Filter>Games</Filter>
     </ClCompile>
   </ItemGroup>
@@ -389,6 +392,9 @@
       <Filter>Prefabs</Filter>
     </ClInclude>
     <ClInclude Include="ExamRelativePositions.h">
+      <Filter>Games</Filter>
+    </ClInclude>
+    <ClInclude Include="ExamSlerping.h">
       <Filter>Games</Filter>
     </ClInclude>
   </ItemGroup>

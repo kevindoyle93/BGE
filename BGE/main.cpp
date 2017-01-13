@@ -43,6 +43,7 @@
 #include "SDL_syswm.h"
 #include "ExamRelativePositions.h"
 #include "ExamSlerping.h"
+#include "ExamTimeInterval.h"
 
 using namespace BGE;
 
@@ -55,7 +56,11 @@ int main(int argc, char *argv[])
 	// shared_ptr<Game> game = make_shared<ExamRelativePositions>();
 
 	// Run game with quaternion slerping
-	shared_ptr<Game> game = make_shared<ExamSlerping>();
+	// shared_ptr<Game> game = make_shared<ExamSlerping>();
+
+	// Run game with time interval shooting/fire rate
+	shared_ptr<Game> game = make_shared<ExamTimeInterval>();
+
 	game->Run();
 	
 	return 0;

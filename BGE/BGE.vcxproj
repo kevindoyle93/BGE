@@ -103,6 +103,7 @@
     <ClCompile Include="Buddha.cpp" />
     <ClCompile Include="Capsule.cpp" />
     <ClCompile Include="ExamSlerping.cpp" />
+    <ClCompile Include="ExamTimeInterval.cpp" />
     <ClCompile Include="FlockingScenario.cpp" />
     <ClCompile Include="FountainEffect.cpp" />
     <ClCompile Include="IdleState.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Buddha.h" />
     <ClInclude Include="Capsule.h" />
     <ClInclude Include="ExamSlerping.h" />
+    <ClInclude Include="ExamTimeInterval.h" />
     <ClInclude Include="FlockingScenario.h" />
     <ClInclude Include="FountainEffect.h" />
     <ClInclude Include="IdleState.h" />

@@ -221,6 +221,9 @@
     <ClCompile Include="ExamSlerping.cpp">
       <Filter>Games</Filter>
     </ClCompile>
+    <ClCompile Include="ExamTimeInterval.cpp">
+      <Filter>Games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -395,6 +398,9 @@
       <Filter>Games</Filter>
     </ClInclude>
     <ClInclude Include="ExamSlerping.h">
+      <Filter>Games</Filter>
+    </ClInclude>
+    <ClInclude Include="ExamTimeInterval.h">
       <Filter>Games</Filter>
     </ClInclude>
   </ItemGroup>
